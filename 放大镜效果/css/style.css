@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.enlageTool{
+	position: relative;
+	margin:100px;
+}
+.normalImg{
+	background: url('../images/notebook.jpeg') no-repeat;
+	width: 350px;
+	height: 350px;
+	border: 1px solid #000;
+}
+.enlageImg{
+	background: url('../images/notebook-big.jpeg') no-repeat left top;
+	width: 400px;
+	height: 400px;
+	border: 1px solid #000;
+	position: absolute;
+	top: 0;
+	left: 350px;
+	display: none;
+}
+.enlageGlass{
+	background: #fede4f;
+	width: 175px;
+	height: 175px;
+	opacity: 0.5;
+	cursor: move;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}

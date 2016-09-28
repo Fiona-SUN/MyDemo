@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择城市</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+	<div class="content">
+		<div class="selectText">
+			<select id="leftPart" multiple>
+				<option value="广州">广州</option>
+				<option value="深圳">深圳</option>
+				<option value="珠海">珠海</option>
+				<option value="东莞">东莞</option>
+				<option value="佛山">佛山</option>
+				<option value="中山">中山</option>
+				<option value="潮州">潮州</option>
+				<option value="汕头">汕头</option>
+			</select>
+		</div>
+		
+		<div class="btnPart">
+			<input type="button" value=">>" id="allSelect">
+			<input type="button" value="<<" id="allUnSelect">
+			<input type="button" value=">" id="selectBtn">
+			<input type="button" value="<" id="unSelectBtn">
+		</div>
+
+		<div class="selectedText">
+			<select id="rightPart" multiple></select>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="./js/script.js"></script>
+</body>
+</html>

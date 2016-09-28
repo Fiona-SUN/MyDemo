@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>省市联动</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		.content{
+			margin:30px;
+		}
+		.content select{
+			width: 150px;
+			margin-right: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<select name="provice" id="provice">
+			<option value="请选择省份" selected>请选择省份</option>
+		</select>
+		<select name="city" id="city" disabled>
+			<option value="请先选择省份">请先选择省份</option>
+		</select>
+	</div>
+
+	<script type="text/javascript" src="./js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="./js/data.js"></script>
+	<script type="text/javascript" src="./js/script.js"></script>
+	
+</body>
+</html>

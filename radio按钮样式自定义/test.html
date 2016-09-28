@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8">
+<title>属性选择器</title>
+<style type="text/css">
+ *{
+    padding: 0;
+    margin: 0; 
+ }
+ .content{
+    border: 1px solid black;
+    width: 450px;
+    height: 200px;
+    margin:0 auto;
+    margin-top: 100px;
+ }
+ .sex{
+    margin-left: 35%;
+    margin-top: 15%;
+ }
+ .radio_btn{
+    background: orange;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    position: relative;
+    vertical-align: middle;
+ }
+ .radio_btn input{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    opacity: 0;
+ }
+ .radio_btn span{
+    background: #fff;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 10px;
+    border-radius: 10px;
+ }
+ .radio_btn input[type="radio"] + span{
+    opacity: 0;
+ }
+ .radio_btn input[type="radio"]:checked + span{
+    opacity: 1;
+ }
+</style>
+</head> 
+<body>
+  <div class="content">
+    <div class="sex">
+
+        <span class="radio_btn">
+            <input type="radio" checked="checked" name="sex" id="man" />
+            <span></span>
+        </span>
+        <label for="man" >男</label>
+
+        <span class="radio_btn">
+            <input type="radio" name="sex" id="male">
+            <span></span>
+        </span>
+        <label for="male">女</label>
+        
+    </div>
+  </div>
+</body>
+</html>

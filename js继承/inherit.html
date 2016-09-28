@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+			// this.showInfo = function(){
+			// 	alert("my name is "+this.name+",my age is "+this.age)
+			// }
+		}
+
+		Person.prototype.showInfo =function(){
+			alert("my name is "+this.name+",my age is "+this.age)
+		}
+
+		function Student(name,age,grade){
+			Person.call(this,name,age);
+			this.grade = grade;
+			// this.showGradee = function(){
+			// 	alert("my grade is "+this.grade);
+			// }
+		}
+
+		Student.prototype = new Person();
+
+		//一定要放在后面，详细了解原型的实现机制
+		Student.prototype.showGrade = function(){
+			alert("my grade is "+this.grade);
+		}
+
+		var stu = new Student("mary",12,3);
+
+		alert(stu.name);
+		alert(stu.age);
+		stu.showInfo();
+
+		alert(stu.grade);
+		stu.showGrade();
+	</script>
+</body>
+</html>

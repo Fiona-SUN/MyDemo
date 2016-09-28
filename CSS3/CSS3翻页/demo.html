@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>正方体</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        html, body, div, span,
+        h1, h2, h3, h4, h5, h6, p
+        a, img, ol, ul, li
+        {
+            margin:0;padding:0;border:0;outline:0;
+        }
+
+        .my3d{
+
+
+			/*只兼容chorme和safari*/
+            perspective:800;
+            -webkit-perspective:800;
+            
+            perspective-origin:50% 50%;
+            -webkit-perspective-origin:50% 50%;
+			-moz-perspective-origin:50% 50%;
+			-ms-perspective-origin:50% 50%;
+			-o-perspective-origin:50% 50%;
+            
+            overflow: hidden;
+        }
+
+        .content{
+            height:260px;
+            width:260px;
+            border:1px solid black;
+            position:relative;
+
+            /*会影响perspective-origin*/
+            margin: 0px auto;
+            margin-top: 100px;
+            transform-style:preserve-3d;
+            -weibit-transform-style:preserve-3d;
+            -moz-transform-style:preserve-3d;
+            -ms-transform-style:preserve-3d;
+            -o-transform-style:preserve-3d;
+
+        }
+        .page{
+            color:white;
+            width:200px;
+            height:200px;
+            background:black;
+            font-size:300px;
+            line-height:200px;
+            text-align:center;
+            padding:30px;
+            position:absolute;
+            
+            transition:transform 1s linear;
+            -weibit-transition:transform 1s linear;
+            -moz-transition:transform 1s linear;
+            -ms-transition:transform 1s linear;
+            -o-transition:transform 1s linear;
+            
+            
+            transform-origin:bottom;
+            -webkit-transform-origin:bottom;
+            -moz-transform-origin:bottom;
+            -ms-transform-origin:bottom;
+            -o-transform-origin:bottom;
+            
+        }
+
+        #page1{
+            
+        }
+        #page2,#page3,#page4,#page5,#page6{
+            transform:rotateX(90deg);
+            -webkit-transform:rotateX(90deg);
+            -moz-transform:rotateX(90deg);
+            -ms-transform:rotateX(90deg);
+            -o-transform:rotateX(90deg);
+        }
+        .btn{
+            margin-left:600px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="my3d">
+        <div class="content">
+            <div class="page" id="page1">1</div>
+            <div class="page" id="page2">2</div>
+            <div class="page" id="page3">3</div>
+            <div class="page" id="page4">4</div>
+            <div class="page" id="page5">5</div>
+            <div class="page" id="page6">6</div>
+        </div>
+    </div>
+    
+    <div class="btn">
+        <a href="javascript:pre()" >pre</a>
+        <a href="javascript:next()" >next</a>
+    </div>
+
+
+    <script type="text/javascript">
+        window.onload=function(){
+            alert(document.body.clientHeight)
+        }
+
+        var pageNum = 1;
+
+        function next(){
+            if(pageNum==6){
+                alert("这已经是最后一页！")
+                return;
+            }
+            var curPage = document.getElementById("page"+pageNum);
+            curPage.style.transform="rotateX(-90deg)";
+            
+            pageNum++;
+            curPage = document.getElementById("page"+pageNum);
+            curPage.style.transform="rotateX(0deg)";
+        }
+
+        function pre(){
+            if(pageNum==1){
+                alert("这已经是第一页！")
+                return;
+            }
+            var curPage = document.getElementById("page"+pageNum);
+            curPage.style.transform="rotateX(90deg)";
+            
+            pageNum--;
+            curPage = document.getElementById("page"+pageNum);
+            curPage.style.transform="rotateX(0deg)";
+        }
+    </script>
+
+</body>
+</html>

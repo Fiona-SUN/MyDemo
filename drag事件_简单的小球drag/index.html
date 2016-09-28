@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+		}
+		#ball{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<img id="ball" src="./images/ball-light.gif" height="150" width="150">
+	
+	<script type="text/javascript">
+		window.addEventListener("load",function(){
+			var ball = document.getElementById("ball");
+
+			ball.addEventListener("mousedown",function(event){
+				
+				var e = event || window.event;
+
+				if(e.preventDefault){
+					e.preventDefault();
+				}else{
+					e.returnValue = false;
+				}
+				
+
+				document.addEventListener("mousemove",move)
+
+				document.addEventListener("mouseup",up)
+
+			})
+		})
+
+		function move(event){
+			var e = event||window.event;
+
+			ball.style.left = e.clientX - ball.offsetWidth/2  + "px";
+			ball.style.top = e.clientY -ball.offsetHeight/2 + "px";
+		}
+
+		function up(event){
+			document.removeEventListener("mousemove",move);
+			document.removeEventListener("mouseup",up);
+		}
+	</script>
+</body>
+</html>

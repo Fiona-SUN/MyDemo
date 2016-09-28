@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>正方体</title>
+    <meta charset="utf-8">
+    <link href="style2.css" rel="stylesheet" type="text/css"/>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+    <div class="my3d">
+        <div class="content" id="content">
+            <div class="page" id="page1">1</div>
+            <div class="page" id="page2">2</div>
+            <div class="page" id="page3">3</div>
+            <div class="page" id="page4">4</div>
+            <div class="page" id="page5">5</div>
+            <div class="page" id="page6">6</div>
+        </div>
+    </div>
+    
+    <div class="rotate-range">
+    <p>rotate x: <span id="rotax-span">0</span> deg</p>
+    <input type="range" min="-360" max="360" id="rotatex" value="0"  onchange="rotate()" /><br/>
+    <p>rotate y: <span id="rotay-span">0</span> deg</p>
+    <input type="range" min="-360" max="360" id="rotatey" value="0" onchange="rotate()" /><br/>
+    <p>rotate z: <span id="rotaz-span">0</span> deg</p>
+    <input type="range" min="-360" max="360" id="rotatez" value="0"  onchange="rotate()" /><br/>
+    </div>
+</div>
+
+
+
+</body>
+</html>

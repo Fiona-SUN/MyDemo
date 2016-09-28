@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+*{
+	padding: 0;
+	margin:0;
+	box-sizing: border-box;
+}
+.clearfix{
+	clear: both;
+}
+.content{
+	background: #000;
+	width: 100%;
+	height: 630px;
+	padding-top: 100px;
+}
+.navigation{
+	width: 900px;
+	height: 45px;
+	margin: 0 auto;
+	border-radius:10px; 
+	background:#fff url('../images/rss.png') no-repeat right center;
+	position: relative;
+}
+.navigation>ul{
+	list-style: none;
+	width: 666px;
+	height: 45px;
+	position: relative;
+	z-index: 10;
+}
+
+.navigation>ul>li{
+	float: left;
+	width: 83px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	cursor: pointer;
+}
+.moveObj{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 5;
+}

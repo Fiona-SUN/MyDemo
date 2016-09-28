@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js_小汽车_面向对象编程</title>
+</head>
+<body>
+	<div id="content"></div>
+
+	<script>
+	 	var content = document.getElementById("content");
+
+	 	//工厂模式---寄生式模式
+	 	function createCar(brand,color,price){
+	 		var car = new Object();
+	 		car.brand =  brand;
+	 		car.color = color;
+	 		car.price = price;
+
+	 		//匿名函数，showInfo是一个指针，指向该函数
+	 		car.showInfo = function(){
+	 			content.innerHTML+=("工厂模式---寄生式模式："+this.brand+"-"+this.color+"-"+this.price+"<br>");
+	 		}
+
+	 		car.run = function(){
+	 			content.innerHTML+=("工厂模式---寄生式模式："+this.brand+"-"+this.color+"-正在奔驰！<br>");
+	 		}
+
+	 		car.toString = function(){
+	 			return this.brand+"-"+this.color+"-"+this.price;
+	 		}
+
+	 		return car; 
+	 	}
+
+	 	function carSort(carA,carB){
+	 		if(carA instanceof Object && carB instanceof Object){
+	 			if(carA.brand != carB.brand){
+	 				if(carA.brand<carB.brand){
+	 					return -1;
+	 				}
+	 				else if(carA.brand>carB.brand){
+	 					return 1;
+	 				}
+	 			}
+	 			else{
+	 				if(carA.price<carB.price){
+	 					return 1;
+	 				}
+	 				else if(carA.price>carB.price){
+	 					return -1;
+	 				}
+	 				else{
+	 					return 0;
+	 				}
+	 			}
+	 		}
+	 		else{
+	 			return;
+	 		}
+	 	}
+
+	 	var arr1 = new Array();
+	 	var carA = createCar("bmw","red","300000");
+	 	arr1.push(carA);
+	 	carA.showInfo();
+	 	carA.run();
+
+	 	var carB = createCar("bmw","red","200000");
+	 	arr1.push(carB);
+	 	carB.showInfo();
+	 	carB.run();	
+
+	 	var carC = createCar("abc","black","100000");
+	 	arr1.push(carC);
+	 	carC.showInfo();
+	 	carC.run();	
+
+	 	arr1.sort(carSort);
+	 	content.innerHTML+=("排序之后的结果是"+arr1+"<br><br>")
+
+
+	 	//构造函数
+	 	function Car(brand,color,price){
+	 		this.brand = brand;
+	 		this.color = color;
+	 		this.price = price;
+
+	 		this.showInfo = function(){
+	 			content.innerHTML+=("构造函数："+this.brand+"-"+this.color+"-"+this.price+"<br>");
+	 		}
+
+	 		this.run = function(){
+	 			content.innerHTML+=("构造函数："+this.brand+"-"+this.color+"-正在奔驰！<br>");
+	 		}
+
+	 		this.toString = function(){
+	 			return this.brand+"-"+this.color+"-"+this.price;
+	 		}
+
+	 	}
+
+	 	var arr2 = [];
+	 	var carD = new Car("bmw","red","300000");
+	 	arr2.push(carD);
+	 	carD.showInfo();
+	 	carD.run();
+
+	 	var carE = new Car("bmw","red","200000");
+	 	arr2.push(carE);
+	 	carE.showInfo();
+	 	carE.run();	
+
+	 	var carF = new Car("abc","black","100000");
+	 	arr2.push(carF);
+	 	carF.showInfo();
+	 	carF.run();	
+
+	 	arr2.sort(carSort);
+	 	content.innerHTML+=("排序之后的结果是"+arr2+"<br><br>");
+
+	 	//组合使用构造函数和原型
+	 	function Cars(brand,color,price){
+	 		this.brand = brand;
+	 		this.color = color;
+	 		this.price = price;
+	 	}
+
+	 	Cars.prototype = {
+	 		constructor:Cars,
+	 		showInfo:function(){
+	 			content.innerHTML+=("组合使用构造函数和原型："+this.brand+"-"+this.color+"-"+this.price+"<br>");
+	 		},
+	 		run : function(){
+	 			content.innerHTML+=("组合使用构造函数和原型："+this.brand+"-"+this.color+"-正在奔驰！<br>");
+	 		},
+	 		toString : function(){
+	 			return this.brand+"-"+this.color+"-"+this.price;
+	 		}
+	 	}
+
+	 	var arr3 = [];
+	 	var carG = new Cars("bmw","red","300000");
+	 	arr3.push(carG);
+	 	carG.showInfo();
+	 	carG.run();
+
+	 	var carH = new Cars("bmw","red","200000");
+	 	arr3.push(carH);
+	 	carH.showInfo();
+	 	carH.run();	
+
+	 	var carI = new Cars("abc","black","100000");
+	 	arr3.push(carI);
+	 	carI.showInfo();
+	 	carI.run();	
+
+	 	arr3.sort(carSort);
+	 	content.innerHTML+=("排序之后的结果是"+arr3+"<br><br>");
+	</script>
+</body>
+</html>

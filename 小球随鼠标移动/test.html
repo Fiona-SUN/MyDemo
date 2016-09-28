@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>	
+
+       *{
+       	 margin: 0;
+       	 padding: 0;
+       }
+
+       body{
+       	 background-color: #000;
+       }
+
+       #ballImg{
+       	  width: 150px;
+       	  height: 150px;
+       	  position: absolute;
+       	  left:0px;
+       	  top:0px;
+       }
+
+	</style>
+    <script type="text/javascript">
+    	 var currentX = 0;
+      var currentY = 0;
+      var desX = 0;
+      var desY = 0; 
+
+    	 window.onload = function(){
+          var ball = document.getElementById("ballImg");
+
+          
+
+          document.addEventListener("mousemove",function(event){
+            var e = event||window.event;
+
+            desX = e.clientX - ball.offsetWidth/2;
+            desY = e.clientY - ball.offsetHeight/2;
+            //console.log(desX+","+dexY);
+            move(ball);
+          })
+
+
+       }
+       var timer = null;
+       function move(ball){
+        clearInterval(timer);
+         var i = 0;
+         var speedX = (desX - currentX)/100;
+         var speedY = (desY - currentY)/100;
+        timer = setInterval(function(){
+           // console.log(desX+","+dexY);
+            currentX = currentX + speedX
+            currentY = currentY + speedY
+            ball.style.left =  currentX+ "px";
+            ball.style.top =  currentY + "px";
+            i++;
+           
+            console.log(i)
+            if(i == 100){
+              ball.style.left =  desX+ "px";
+              ball.style.top =  desY + "px";
+              clearInterval(timer);
+            }
+          },1)
+       }
+
+    </script>
+
+</head>
+<body>
+	<img id="ballImg" src="./images/ball-light-2.gif" title="彩色闪烁小球">
+</html>

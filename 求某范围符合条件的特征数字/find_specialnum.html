@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>特征数字</title>
+
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin:0;
+		}
+		.content{
+			width:800px;
+			margin:100px auto;
+			border:2px solid pink;
+		}
+		.content>h2{
+			margin-top: 20px;
+			text-align: center;
+			color: #4682B4;
+			margin-bottom: 30px
+		}
+		.info{
+			margin-left: 250px;
+			margin-bottom: 20px;
+		}
+		.tips{
+			font-size:18x;
+			color: #9F79EE;
+			font-weight: bold;
+		}
+		.txt{
+			height:28px;
+			width: 200px;
+			font-size:16px;
+			border-radius: 10px;
+			box-shadow: none;
+			outline: none;
+			background: #F8F8FF;
+			color: #8968CD;
+			border: 1px solid #F8F8FF;
+			text-align: center;
+		}
+		.search{
+			height: 40px;
+			width: 140px;
+			font-size:20px;
+			font-weight: bold;
+			margin: 20px 20px 20px 500px;
+			border-radius: 10px;
+			border:0;
+			background: #436EEE;
+			color: #fff;
+			outline: none; 
+			opacity: 0.8;
+		}
+		.search:hover{
+			opacity: 1;
+		}
+		.ans{
+			padding:20px;
+			margin:0 30px;
+			border-top:2px solid #FFDAB9;
+		}
+		.ans .title{
+			font-size:20px;
+			font-weight: bold;
+			color: #FF7256;
+			margin-bottom: 10px;
+		}
+		.result{
+			color: #FFA54F;
+			font-size:18px;
+			font-weight: bold;
+			margin-bottom: 10px;
+			margin-left: 100px;
+		}
+	</style>
+
+</head>
+<body>
+ 	<div class="content">
+ 		<h2>特征数字</h2>
+ 		
+ 		<div class="info">
+	 		<label for="start" class="tips">开始范围:</label>
+	 		<input type="text" name="start" id="start" class="txt" required>
+		</div>
+ 		
+ 		<div class="info">
+	 		<label for="en" class="tips">结束范围:</label>
+	 		<input type="text" name="end" id="end" class="txt" required>
+ 		</div>
+
+ 		<div class="info">
+	 		<label for="signature" class="tips">特征数字:</label>
+	 		<input type="text" name="signature" id="signature" class="txt" required>
+ 		</div>
+ 
+ 		<div class="info">
+	 		<label for="times" class="tips">出现频率:</label>
+	 		<input type="text" name="times" id="times" class="txt" required>
+	 	</div>
+
+	 	<div>
+	 		<input type="button" name="search" id="search" class="search" value="查&nbsp;&nbsp;找">
+	 	</div>
+	 	
+	 	<div class="ans">
+	 		<div class="title">查找结果:</div>
+	 		<div id="result" class="result"></div>
+	 	</div>
+
+ 	</div>
+
+ 	<script type="text/javascript">
+ 		window.onload=function(){
+
+ 			var start = document.getElementById("start");
+ 			var end = document.getElementById("end");
+ 			var signature = document.getElementById("signature");
+ 			var times = document.getElementById("times");
+ 			var search = document.getElementById("search");
+ 			var result = document.getElementById("result");
+
+ 			search.onclick=function(){
+ 				
+ 				result.innerHTML = "";
+
+ 				//为空
+ 				if(start.value == "" || end.value == "" || signature.value == "" || times.value==""){
+ 					
+ 					start.style.border="none";
+ 					end.style.border="none";
+ 					signature.style.border="none";
+ 					times.style.border="none";
+
+ 					if(start.value == ""){
+ 						start.style.border ="1px solid #FF4500";
+						alert("开始范围不能为空!");
+ 					}
+ 					else if(end.value == ""){
+ 						end.style.border ="1px solid #FF4500";
+ 						alert("结束范围不能为空!");
+ 					}
+ 					else if(signature.value == ""){
+ 						signature.style.border ="1px solid #FF4500";
+ 						alert("特征数字不能为空!");
+ 					}
+ 					else if(times.value == ""){
+ 						times.style.border ="1px solid #FF4500";
+ 						alert("出现频率不能为空!");
+ 					}
+ 				}
+
+ 				//不是整数
+ 				else if( parseInt(start.value)!=start.value || parseInt(end.value)!=end.value|| parseInt(signature.value)!=signature.value|| parseInt(times.value)!=times.value){
+
+ 					start.style.border="none";
+ 					end.style.border="none";
+ 					signature.style.border="none";
+ 					times.style.border="none";
+
+ 					if(parseInt(start.value)!=start.value){
+ 						start.style.border ="1px solid #FF4500";
+						alert("开始范围只能是整数!");
+ 					}
+ 					else if(parseInt(end.value)!=end.value){
+ 						end.style.border ="1px solid #FF4500";
+ 						alert("结束范围只能是整数!");
+ 					}
+ 					else if(parseInt(signature.value)!=signature.value){
+ 						signature.style.border ="1px solid #FF4500";
+ 						alert("特征数字只能是整数!");
+ 					}
+ 					else if(parseInt(times.value)!=times.value){
+ 						times.style.border ="1px solid #FF4500";
+ 						alert("出现频率只能是整数!");
+ 					}
+ 				}
+ 				//开始的数值比结束的数值大
+ 				else if(start.value>=end.value){
+ 					alert("开始的数值大于等于结束的数值！");
+ 					start.style.border ="1px solid #FF4500";
+ 					end.style.border ="1px solid #FF4500";
+ 				}
+ 				else{
+
+ 					start.style.border="none";
+ 					end.style.border="none";
+ 					signature.style.border="none";
+ 					times.style.border="none";
+
+ 					var n;
+ 					var arr = new Array();
+ 					
+ 					for(var i=start.value;i<=end.value;i++){
+ 						n = 0;
+ 						//特征数字出现频率
+ 						n = n + (i.toString().split(signature.value).length-1);
+ 						if(n>=times.value){
+
+ 							arr.push(i)
+ 						}
+
+ 					}
+ 					var len = arr.length
+ 					if(len==0){
+ 						result.innerHTML = "该范围没有特征数值！";
+ 					}
+ 					else{
+
+ 						for(var i=0;i<len;i++){
+
+	 						result.innerHTML+=arr[i];
+							result.innerHTML+="\t";
+							
+							if((i+1)%10==0){
+								result.innerHTML+='<br>';
+							}
+		 				}
+
+
+ 					}
+ 					
+
+ 				}
+
+ 			}
+ 		
+ 		}
+ 	</script>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>css3-3d导航栏</title>
+		<meta charset="utf-8" />
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+        		text-shadow:none;
+			}
+			ul{
+				
+			}
+			a{
+				text-decoration: none;
+				color: #fff;
+			}
+			.wrapper{
+				width: 600px;
+				margin: 100px auto;
+			}
+			.nav{
+	            position: relative;
+list-style: none;
+				/*-webkit-perspective:1000;	 Safari 和 Chrome */
+			}
+			
+			.nav li{
+				list-style: none;
+				text-align: center;
+				color: #fff;
+				font-size: 20px;
+				font-weight: bold;
+				line-height: 60px;
+				border-right:1px solid #94c0be; 
+			}
+			.three-d{
+				height: 60px;
+				width: 120px;
+				float: left;
+				position: relative;
+
+				transform-style:preserve-3d;
+				-webkit-transform-style:preserve-3d;
+				-moz-transform-style:preserve-3d;
+				-ms-transform-style:preserve-3d;
+				-o-transform-style:preserve-3d;
+
+				transition:all .5s linear;
+				-webkit-transition:all .5s linear;
+				-moz-transition:all .5s linear;
+				-ms-transition:all .5s linear;
+				-o-transition:all .5s linear;
+			}
+			.three-d a{
+				height: 60px;
+				width: 120px;
+				background: #74adaa;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+			.page1{
+				transform:translateZ(30px);
+				-webkit-transform:translateZ(30px);
+				-moz-transform:translateZ(30px);
+				-ms-transform:translateZ(30px);
+				-o-transform:translateZ(30px);
+			}
+			.page2{
+				transform:rotateX(90deg) translateZ(30px);
+				-webkit-transform:rotateX(90deg) translateZ(30px);
+				-moz-transform:rotateX(90deg) translateZ(30px);
+				-ms-transform:rotateX(90deg) translateZ(30px);
+				-o-transform:rotateX(90deg) translateZ(30px);
+			}
+			.three-d:hover{
+				transform:rotateX(-90deg) translateY(30px);
+				-webkit-transform:rotateX(-90deg) translateY(30px);
+				-moz-transform:rotateX(-90deg) translateY(30px);
+				-ms-transform:rotateX(-90deg) translateY(30px);
+				-o-transform:rotateX(-90deg) translateY(30px);
+			}
+			
+			.clearfix{
+				clear: both;
+			}
+			.three-two{
+				position: relative;
+			}
+			.nav ul{
+				position: absolute;
+        		text-align: left;
+        		line-height: 60px;
+        		font-size: 14px;
+        		top: 60px;
+        		transform-origin: top;
+        		-webkit-transform-origin: top;
+        		-moz-transform-origin: top;
+        		-ms-transform-origin: top;
+        		-o-transform-origin: top;
+
+        		transform: rotateX(90deg) translateY(30px) translateZ(60px);
+        		-webkit-transform: rotateX(90deg) translateY(30px) translateZ(60px);
+        		-moz-transform: rotateX(90deg) translateY(30px) translateZ(60px);
+        		-ms-transform: rotateX(90deg) translateY(30px) translateZ(60px);
+        		-o-transform: rotateX(90deg) translateY(30px) translateZ(60px);
+	        	
+
+			}
+			.nav ul li{
+				width: 160px;
+				border: none;
+			}
+			.nav ul .three-d a{
+				width: 160px;
+			}
+			.nav>li:hover ul li{
+				margin-bottom: 1px;
+			}
+			.nav>li:hover ul {
+				perspective-origin:50%  50%;
+
+				perspective:900;
+				-webkit-perspective:900;
+			}
+			.three-d:hover>a{
+				background-color: #51938F;
+        		background-size: 5px 5px;
+        		background-position: 0 0, 30px 30px;
+        		background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+			  	background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+				background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+			  	background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+			 	background-image: linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="navigation">
+				<ul class="nav">
+
+					<li class="three-d">
+						<a href="#" class="page1">Home</a>
+						<a href="#" class="page2">Home</a>
+					</li>
+					
+					<li class="three-d"> 
+
+						<a href="#" class="page1">Article</a>	
+						<a href="#" class="page2">Article</a>	
+						<div class="clearfix"></div>
+						 <ul>
+							<li class="three-d">
+								<a href="#" class="page1">css</a>
+								<a href="#" class="page2">css</a>	
+							</li>
+							<li class="three-d">
+								<a href="#" class="page1">html</a>
+								<a href="#" class="page2">html</a>
+							</li>
+						</ul>
+					</li>
+
+					<li class="three-d">
+						<a href="#" class="page1">Comment</a>
+						<a href="#" class="page2">Comment</a>
+					</li>
+					<li class="three-d">
+						<a href="#" class="page1">Contact</a>
+						<a href="#" class="page2">Contact</a>
+					</li>
+				</ul>
+
+			<div class="clearfix"></div>
+			</div>
+		</div>
+		<script>
+			
+			
+		</script>
+	</body>
+</html>

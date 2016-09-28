@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对话框拖拽事件</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+		}
+		.dialog{
+			width: 350px;
+			height: 300px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			border: 1px solid #000;
+		}
+		.topPart{
+			background: pink;
+			height: 40px;
+			cursor: move;
+		}
+	</style>
+</head>
+<body>
+	<div class="dialog" id="dialog">
+		<div class="topPart" id="topPart"></div>
+		<div class="contentPart">this is content</div>
+	</div>
+	
+	<script type="text/javascript" src="./js/event.js"></script>
+	<script type="text/javascript" src="./js/script.js"></script>
+</body>
+</html>
